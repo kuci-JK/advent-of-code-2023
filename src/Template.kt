@@ -8,10 +8,10 @@ fun main() {
     }
 
     // test if implementation meets criteria from the description, like:
-    val testInput = readInput("inputs/Day01.test.txt")
+    val testInput = readInput("TEST")
     check(part1(testInput) == 1)
 
-    val input = readInput("inputs/Day01.input.txt")
+    val input = readInput("INPUT")
     part1(input).println()
     part2(input).println()
 }
