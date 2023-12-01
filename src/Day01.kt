@@ -22,31 +22,24 @@ fun main() {
             "nine" to "9",
         )
 
-        val res = input.parallelStream().mapToInt {
+        val res = input.stream().mapToInt {
             // replacing
             var result = ""
 
             var i = 0
-            label@while (i < it.length) {
+            while (i < it.length) {
                 if (it[i].isDigit()) {
                     result += it[i]
-                    i++
-                    continue
                 }
 
                 for ( key in conv.keys ) {
                     if (it.startsWith(key, i)) {
-                        val newI = i + key.length
-
                         result += conv[key]
-
-                        i = newI
-                        continue@label
+                        break
                     }
                 }
                 i++
             }
-
             "${result.first()}${result.last()}".toInt()
         }.sum();
 
